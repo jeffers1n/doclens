@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DocLens · ответы по вашим файлам</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="DocLens — главная">
+      <span aria-hidden="true" class="mark"></span>DocLens
+    </a>
+  </header>
+  <main>
+    <aside aria-labelledby="libraryTitle">
+      <div class="library-heading">
+        <h2 id="libraryTitle">Ваши файлы</h2>
+        <span id="fileCount" aria-label="Количество документов">0</span>
+      </div>
+      <div class="actions">
+        <button id="filesButton">Добавить файлы</button>
+        <button id="folderButton" class="light">Выбрать папку</button>
+      </div>
+      <input type="file" id="files" multiple hidden>
+      <input type="file" id="folder" webkitdirectory multiple hidden>
+      <p class="muted" id="types"></p>
+      <p id="importStatus" role="status"></p>
+      <details id="problems" hidden>
+        <summary>Пропущенные файлы</summary>
+        <ul></ul>
+      </details>
+      <ul id="library"></ul>
+    </aside>
+    <section class="search" aria-labelledby="searchTitle">
+      <div class="page-heading">
+        <h1 id="searchTitle">Ответы в ваших документах</h1>
+        <p>Задайте вопрос и откройте фрагменты файлов, на которых основан ответ.</p>
+      </div>
+      <form id="form">
+        <label for="question">Ваш вопрос</label>
+        <textarea id="question" maxlength="2000" placeholder="Что вы хотите узнать из загруженных файлов?" required></textarea>
+        <div class="tools">
+          <label for="mode">Режим
+            <select id="mode">
+              <option value="search">Только поиск</option>
+              <option value="qwen">Ответ Qwen · локально</option>
+              <option value="gemini">Ответ Gemini · облако</option>
+              <option value="both">Сравнить Qwen и Gemini</option>
+            </select>
+          </label>
+          <button id="go">Найти</button>
+        </div>
+        <p class="muted" id="modelInfo"></p>
+      </form>
+      <p id="status" role="status"></p>
+      <div id="emptyState" class="empty-state">
+        <span class="empty-document" aria-hidden="true"></span>
+        <h2>Начните с ваших файлов</h2>
+        <p>Добавьте документ или папку с помощью кнопок в библиотеке.</p>
+      </div>
+      <div id="answers"></div>
+      <div id="sources"></div>
+    </section>
+  </main>
+</body></html>

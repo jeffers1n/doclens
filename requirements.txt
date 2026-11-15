@@ -1,0 +1,2 @@
+pypdf==7.0.1
+snowballstemmer==3.0.1
